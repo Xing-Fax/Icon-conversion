@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Blend for Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Icon conversion", "Icon conversion\Icon conversion.csproj", "{DE19AD13-4659-49C1-A4EC-0D5BD858D1E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE19AD13-4659-49C1-A4EC-0D5BD858D1E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE19AD13-4659-49C1-A4EC-0D5BD858D1E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE19AD13-4659-49C1-A4EC-0D5BD858D1E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE19AD13-4659-49C1-A4EC-0D5BD858D1E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {37E90CFF-215F-498F-95F4-F6A580FD422C}
+	EndGlobalSection
+EndGlobal
