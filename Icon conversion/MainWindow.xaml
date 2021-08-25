@@ -183,7 +183,7 @@
             <Rectangle x:Name="标题背景" HorizontalAlignment="Left" Height="25" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="640" Fill="#00000000" MouseMove="Rectangle_MouseMove"/>
             <materialDesign:PackIcon Kind="ArrangeSendBackward" x:Name="图标" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="20" Canvas.Left="5" Canvas.Top="5" MouseUp="图标_MouseUp" Foreground="{Binding Background, ElementName=添加文件}" Background="#00000000" Cursor="Hand"/>
             <TextBlock x:Name="标题文字" HorizontalAlignment="Left" Height="17.75" TextWrapping="Wrap" Text="ICO图标转换" VerticalAlignment="Top" Width="117.75" FontSize="14" Canvas.Left="30" Canvas.Top="5"/>
-            <Button x:Name="最小化" Style="{StaticResource MaterialDesignIconButton}" ToolTip="关闭" Height="30" Width="30" Foreground="{Binding Background, ElementName=添加文件}" Canvas.Left="579" Canvas.Top="1" Click="最小化_Click">
+            <Button x:Name="最小化" Style="{StaticResource MaterialDesignIconButton}" ToolTip="最小化" Height="30" Width="30" Foreground="{Binding Background, ElementName=添加文件}" Canvas.Left="579" Canvas.Top="1" Click="最小化_Click">
                 <materialDesign:PackIcon Kind="Minus"  />
             </Button>
             <Button x:Name="关闭" Style="{StaticResource MaterialDesignIconButton}" ToolTip="关闭" Height="30" Width="30" Foreground="{Binding Background, ElementName=添加文件}" Canvas.Left="609" Canvas.Top="1" Click="关闭_Click">
@@ -205,7 +205,7 @@
                     </materialDesign:PackIcon.RenderTransform>
                 </materialDesign:PackIcon>
             </ToggleButton>
-            <Button x:Name="关于" Style="{StaticResource MaterialDesignIconButton}" ToolTip="关闭" Height="30" Width="30" Foreground="{Binding Background, ElementName=添加文件}" Canvas.Left="549" Canvas.Top="1" Click="关于_Click">
+            <Button x:Name="关于" Style="{StaticResource MaterialDesignIconButton}" ToolTip="关于程序" Height="30" Width="30" Foreground="{Binding Background, ElementName=添加文件}" Canvas.Left="549" Canvas.Top="1" Click="关于_Click">
                 <materialDesign:PackIcon Kind="InformationVariant"  />
             </Button>
         </Canvas>
