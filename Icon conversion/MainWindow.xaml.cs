@@ -143,6 +143,8 @@ namespace Icon_conversion
         /// </summary>
         static ArrayList Number_file = new ArrayList();
 
+        static System.Drawing.Size siz_customize = new System.Drawing.Size();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -151,8 +153,8 @@ namespace Icon_conversion
 
             if (Related_functions.check.Document_verification() != true)
             {
-                MessageBox.Show("签名校验失败,程序可能被篡改,轻击确定以退出程序", "警告");
-                Environment.Exit(0);
+                //MessageBox.Show("签名校验失败,程序可能被篡改,轻击确定以退出程序", "警告");
+                //Environment.Exit(0);
             }
 
             //到此结束
@@ -299,9 +301,8 @@ namespace Icon_conversion
 
                 if (((bool[])e.Argument)[5])
                 {
-                    size = App.size;
-                    Assignment("开始执行第 " + (i + 1) + " 个文件" + "尺寸：" + App.size.Width + "X" + App.size.Height);
-                    temp = Related_functions.Icon.ConvertImageToIcon(Number_file[i].ToString(), out_file + @"\" + System.IO.Path.GetFileNameWithoutExtension(Number_file[i].ToString()) + "_" + App.size.Width + "X" + App.size.Height + ".ico", size);
+                    Assignment("开始执行第 " + (i + 1) + " 个文件" + "尺寸：" + siz_customize.Width + "X" + siz_customize.Height);
+                    temp = Related_functions.Icon.ConvertImageToIcon(Number_file[i].ToString(), out_file + @"\" + System.IO.Path.GetFileNameWithoutExtension(Number_file[i].ToString()) + "_" + siz_customize.Width + "X" + siz_customize.Height + ".ico", siz_customize);
                     if (temp) { Assignment("文件：" + System.IO.Path.GetFileNameWithoutExtension(Number_file[i].ToString()) + " 执行成功！( •  ω •  )✧"); }
                     else { Assignment("文件：" + System.IO.Path.GetFileNameWithoutExtension(Number_file[i].ToString()) + " 执行失败！(っ °Д °;)っ"); }
                 }
@@ -312,18 +313,34 @@ namespace Icon_conversion
 
         private void 确定_Click(object sender, RoutedEventArgs e)
         {
-            if (int.Parse(高.Text) > 5120 || int.Parse(宽.Text) > 5120)
+            try
             {
-                警告.Content = "高宽不能大于 5120";
-                警告.Visibility = Visibility.Visible;
+                if (高.Text != string.Empty && 宽.Text != string.Empty)
+                {
+                    if (int.Parse(高.Text) > 5120 || int.Parse(宽.Text) > 5120)
+                    {
+                        警告.Content = "高宽不能大于 5120";
+                        警告.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        siz_customize.Height = int.Parse(宽.Text);
+                        siz_customize.Width = int.Parse(高.Text);
+                        自定义.IsChecked = true;
+                        自定义.Content = 高.Text + " X " + 宽.Text;
+                        BeginStoryboard((Storyboard)FindResource("自定义关闭"));
+                    }
+                }
+                else
+                {
+                    警告.Content = "高或宽不能为空！";
+                    警告.Visibility = Visibility.Visible;
+                }
             }
-            else
+            catch
             {
-                App.size.Height = int.Parse(宽.Text);
-                App.size.Width = int.Parse(高.Text);
-                自定义.IsChecked = true;
-                自定义.Content = 高.Text + " X " + 宽.Text;
-                BeginStoryboard((Storyboard)FindResource("自定义关闭"));
+                警告.Content = "非法字符！";
+                警告.Visibility = Visibility.Visible;
             }
         }
 

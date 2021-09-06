@@ -13,6 +13,6 @@ namespace Icon_conversion
     /// </summary>
     public partial class App : Application
     {
-        public static System.Drawing.Size size = new System.Drawing.Size();
+
     }
 }
