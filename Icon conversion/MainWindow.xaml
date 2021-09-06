@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Icon_conversion"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Name="主窗体" x:Class="Icon_conversion.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="640" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" FontFamily="微软雅黑" DragEnter="主窗体_DragEnter" DragLeave="主窗体_DragLeave" AllowDrop="True" Icon="512x512.ico">
+        Title="MainWindow" Height="400" Width="640" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" FontFamily="微软雅黑" DragEnter="主窗体_DragEnter" DragLeave="主窗体_DragLeave" AllowDrop="True" Icon="512x512.ico" ResizeMode="NoResize">
     <Window.Resources>
         <Storyboard x:Key="自定义打开">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="自定义尺寸">
@@ -237,7 +237,7 @@
             <ProgressBar x:Name="进度条" HorizontalAlignment="Left" Height="6" VerticalAlignment="Top" Width="505" Background="{x:Null}" Foreground="{Binding Background, ElementName=添加文件}" BorderBrush="{x:Null}" Canvas.Top="100"/>
             <Expander x:Name="文件下拉框" Header="已选择0个对象" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI" BorderBrush="#00FFB1B1" Background="#FFECECEC" MinWidth="505" SnapsToDevicePixels="True" HorizontalContentAlignment="Stretch" MaxWidth="502" MaxHeight="360">
                 <Grid Background="#FFE5E5E5">
-                    <ListBox x:Name="文件列表" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI" HorizontalContentAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+                    <ListBox x:Name="文件列表" VerticalAlignment="Top" FontFamily="Microsoft YaHei UI" HorizontalContentAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
                 </Grid>
             </Expander>
         </Canvas>
