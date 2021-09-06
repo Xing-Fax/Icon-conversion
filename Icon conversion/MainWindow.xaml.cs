@@ -324,8 +324,8 @@ namespace Icon_conversion
                     }
                     else
                     {
-                        siz_customize.Height = int.Parse(宽.Text);
-                        siz_customize.Width = int.Parse(高.Text);
+                        siz_customize.Height = int.Parse(高.Text);
+                        siz_customize.Width = int.Parse(宽.Text);
                         自定义.IsChecked = true;
                         自定义.Content = 高.Text + " X " + 宽.Text;
                         BeginStoryboard((Storyboard)FindResource("自定义关闭"));
