@@ -17,11 +17,11 @@ namespace Icon_conversion.Related_functions
         /// </summary>
         /// <param name="origin">原图片路径</param>
         /// <param name="destination">输出ico文件路径</param>
-        /// <param name="iconSize">输出ico图标尺寸，不可大于255x255</param>
+        /// <param name="iconSize">输出ico图标尺寸，保守起见最高5120*5120</param>
         /// <returns>是否转换成功</returns>
         public static bool ConvertImageToIcon(string origin, string destination, Size iconSize)
         {
-            if (iconSize.Width > 255 || iconSize.Height > 255)
+            if (iconSize.Width > 5120 || iconSize.Height > 5120)
             {
                 return false;
             }
@@ -31,11 +31,11 @@ namespace Icon_conversion.Related_functions
             }
             try
             {
-                System.Drawing.Image image = new Bitmap(new Bitmap(origin), iconSize); //先读取已有的图片为bitmap，并缩放至设定大小
-                MemoryStream bitMapStream = new MemoryStream(); //存原图的内存流
-                MemoryStream iconStream = new MemoryStream(); //存图标的内存流
-                image.Save(bitMapStream, ImageFormat.Png); //将原图读取为png格式并存入原图内存流
-                BinaryWriter iconWriter = new BinaryWriter(iconStream); //新建二进制写入器以写入目标图标内存流
+                System.Drawing.Image image = new Bitmap(new Bitmap(origin), iconSize);  //先读取已有的图片为bitmap，并缩放至设定大小
+                MemoryStream bitMapStream = new MemoryStream();                         //存原图的内存流
+                MemoryStream iconStream = new MemoryStream();                           //存图标的内存流
+                image.Save(bitMapStream, ImageFormat.Png);                              //将原图读取为png格式并存入原图内存流
+                BinaryWriter iconWriter = new BinaryWriter(iconStream);                 //新建二进制写入器以写入目标图标内存流
                 /**
                  * 下面是根据原图信息，进行文件头写入
                  */

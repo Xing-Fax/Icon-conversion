@@ -92,7 +92,7 @@ namespace Icon_conversion
             Number_file.Clear();
             文件列表.Items.Clear();
             文件下拉框.Header = "已选择0个对象";
-            日志.Text += "\n[" + DateTime.Now.ToLongTimeString().ToString() + "]: 清空文件列表";
+            Assignment("清空文件列表");
         }
 
         private void 清除日志_Click(object sender, RoutedEventArgs e)
@@ -104,7 +104,7 @@ namespace Icon_conversion
         {
             if (Directory.Exists(out_file) == false)//判断输出目录是否存在
             {
-                日志.Text += "\n[" + DateTime.Now.ToLongTimeString().ToString() + "]: 输出目录不存在,重新创建目录";
+                Assignment("输出目录不存在,重新创建目录");
                 Directory.CreateDirectory(out_file);//创建新路径
             }
             Related_functions.CMD.RunCmd("explorer " + out_file + @"\");
@@ -121,7 +121,7 @@ namespace Icon_conversion
                 {
                     输出路径.Text = dialog.FileName;
                     out_file = dialog.FileName;
-                    日志.Text += "\n[" + DateTime.Now.ToLongTimeString().ToString() + "]: 重新定向输出文件夹：" + dialog.FileName;
+                    Assignment("重新定向输出文件夹：" + dialog.FileName);
                 }
             }
             catch { }
@@ -156,14 +156,13 @@ namespace Icon_conversion
             }
 
             //到此结束
-
-            日志.Text = "[" + DateTime.Now.ToLongTimeString().ToString() + "]: ICO图标转换程序启动  Copyright © xcz 2021";
-            日志.Text += "\n[" + DateTime.Now.ToLongTimeString().ToString() + "]: 获取临时文件夹：" + Temp_file;
-            日志.Text += "\n[" + DateTime.Now.ToLongTimeString().ToString() + "]: 获取桌面路径：" + Desktop_file;
+            日志.Text += "[" + DateTime.Now.ToLongTimeString().ToString() + "]: ICO图标转换程序启动  Copyright © xcz 2021";
+            Assignment("获取临时文件夹：" + Temp_file);
+            Assignment("获取桌面路径：" + Desktop_file);
             输出路径.Text = out_file;
             前端显示.IsChecked = true;
             主窗体.Topmost = true;
-            日志.Text += "\n[" + DateTime.Now.ToLongTimeString().ToString() + "]: 程序准备就绪...";
+            Assignment("程序准备就绪...");
         }
 
         private void 添加文件_Click(object sender, RoutedEventArgs e)
@@ -179,11 +178,11 @@ namespace Icon_conversion
                     {
                         Number_file.Add(file);//将元素添加到数组末尾
                         文件列表.Items.Add(file);
-                        日志.Text += "\n[" + DateTime.Now.ToLongTimeString().ToString() + "]: 已添加文件：" + file;
+                        Assignment("已添加文件：" + file);
                     }
                     else
                     {
-                        日志.Text += "\n[" + DateTime.Now.ToLongTimeString().ToString() + "]: 添加失败!原因：已存在此文件";
+                        Assignment("添加失败!原因：已存在此文件");
                     }
                 }
             }
@@ -209,13 +208,13 @@ namespace Icon_conversion
                 }
                 if (temp == false)
                 {
-                    日志.Text += "\n[" + DateTime.Now.ToLongTimeString().ToString() + "]: 您还没有选择要转换的尺寸！";
+                    Assignment("您还没有选择要转换的尺寸！");
                 }
                 else
                 {
                     if (Directory.Exists(out_file) == false)//判断输出目录是否存在
                     {
-                        日志.Text += "\n[" + DateTime.Now.ToLongTimeString().ToString() + "]: 输出目录不存在,重新创建目录";
+                        Assignment("输出目录不存在,重新创建目录");
                         Directory.CreateDirectory(out_file);//创建新路径
                     }
                     进度条.IsIndeterminate = true;
@@ -228,7 +227,7 @@ namespace Icon_conversion
             }
             else
             {
-                日志.Text += "\n[" + DateTime.Now.ToLongTimeString().ToString() + "]: 您还没有选择要转换的图片！";
+                Assignment("您还没有选择要转换的图片！");
             }
         }
 
@@ -237,6 +236,7 @@ namespace Icon_conversion
             Dispatcher.Invoke(new Action(delegate
             {
                日志.Text += "\n[" + DateTime.Now.ToLongTimeString().ToString() + "]: " + str;
+               框.ScrollToVerticalOffset(框.ExtentHeight);
             }));
         }
 
@@ -249,16 +249,6 @@ namespace Icon_conversion
                 bool temp;
                 if (((bool[])e.Argument)[0])
                 {
-                    size.Height = 16;
-                    size.Width = 16;
-                    Assignment("开始执行第 " + (i + 1) + " 个文件" + "尺寸：" + size.Height + "X" + size.Width);
-                    temp = Related_functions.Icon.ConvertImageToIcon(Number_file[i].ToString(), out_file + @"\" + System.IO.Path.GetFileNameWithoutExtension(Number_file[i].ToString()) + "_" + size.Height + "X" + size.Width + ".ico", size);
-                    if (temp) { Assignment("文件：" + System.IO.Path.GetFileNameWithoutExtension(Number_file[i].ToString()) + " 执行成功！( •  ω •  )✧"); }
-                    else { Assignment("文件：" + System.IO.Path.GetFileNameWithoutExtension(Number_file[i].ToString()) + " 执行失败！(っ °Д °;)っ"); }
-                }
-
-                if (((bool[])e.Argument)[1])
-                {
                     size.Height = 32;
                     size.Width = 32;
                     Assignment("开始执行第 " + (i + 1) + " 个文件" + "尺寸：" + size.Height + "X" + size.Width);
@@ -267,10 +257,20 @@ namespace Icon_conversion
                     else { Assignment("文件：" + System.IO.Path.GetFileNameWithoutExtension(Number_file[i].ToString()) + " 执行失败！(っ °Д °;)っ"); }
                 }
 
+                if (((bool[])e.Argument)[1])
+                {
+                    size.Height = 64;
+                    size.Width = 64;
+                    Assignment("开始执行第 " + (i + 1) + " 个文件" + "尺寸：" + size.Height + "X" + size.Width);
+                    temp = Related_functions.Icon.ConvertImageToIcon(Number_file[i].ToString(), out_file + @"\" + System.IO.Path.GetFileNameWithoutExtension(Number_file[i].ToString()) + "_" + size.Height + "X" + size.Width + ".ico", size);
+                    if (temp) { Assignment("文件：" + System.IO.Path.GetFileNameWithoutExtension(Number_file[i].ToString()) + " 执行成功！( •  ω •  )✧"); }
+                    else { Assignment("文件：" + System.IO.Path.GetFileNameWithoutExtension(Number_file[i].ToString()) + " 执行失败！(っ °Д °;)っ"); }
+                }
+
                 if (((bool[])e.Argument)[2])
                 {
-                    size.Height = 48;
-                    size.Width = 48;
+                    size.Height = 256;
+                    size.Width = 256;
                     Assignment("开始执行第 " + (i + 1) + " 个文件" + "尺寸：" + size.Height + "X" + size.Width);
                     temp = Related_functions.Icon.ConvertImageToIcon(Number_file[i].ToString(), out_file + @"\" + System.IO.Path.GetFileNameWithoutExtension(Number_file[i].ToString()) + "_" + size.Height + "X" + size.Width + ".ico", size);
                     if (temp) { Assignment("文件：" + System.IO.Path.GetFileNameWithoutExtension(Number_file[i].ToString()) + " 执行成功！( •  ω •  )✧"); }
@@ -279,8 +279,8 @@ namespace Icon_conversion
 
                 if (((bool[])e.Argument)[3])
                 {
-                    size.Height = 128;
-                    size.Width = 128;
+                    size.Height = 512;
+                    size.Width = 512;
                     Assignment("开始执行第 " + (i + 1) + " 个文件" + "尺寸：" + size.Height + "X" + size.Width);
                     temp = Related_functions.Icon.ConvertImageToIcon(Number_file[i].ToString(), out_file + @"\" + System.IO.Path.GetFileNameWithoutExtension(Number_file[i].ToString()) + "_" + size.Height + "X" + size.Width + ".ico", size);
                     if (temp) { Assignment("文件：" + System.IO.Path.GetFileNameWithoutExtension(Number_file[i].ToString()) + " 执行成功！( •  ω •  )✧"); }
@@ -289,8 +289,8 @@ namespace Icon_conversion
 
                 if (((bool[])e.Argument)[4])
                 {
-                    size.Height = 255;
-                    size.Width = 255;
+                    size.Height = 1024;
+                    size.Width = 1024;
                     Assignment("开始执行第 " + (i + 1) + " 个文件" + "尺寸：" + size.Height + "X" + size.Width);
                     temp = Related_functions.Icon.ConvertImageToIcon(Number_file[i].ToString(), out_file + @"\" + System.IO.Path.GetFileNameWithoutExtension(Number_file[i].ToString()) + "_" + size.Height + "X" + size.Width + ".ico", size);
                     if (temp) { Assignment("文件：" + System.IO.Path.GetFileNameWithoutExtension(Number_file[i].ToString()) + " 执行成功！( •  ω •  )✧"); }
@@ -312,9 +312,9 @@ namespace Icon_conversion
 
         private void 确定_Click(object sender, RoutedEventArgs e)
         {
-            if (int.Parse(高.Text) > 255 || int.Parse(宽.Text) > 255)
+            if (int.Parse(高.Text) > 5120 || int.Parse(宽.Text) > 5120)
             {
-                警告.Content = "高宽不能大于 255";
+                警告.Content = "高宽不能大于 5120";
                 警告.Visibility = Visibility.Visible;
             }
             else
@@ -340,16 +340,16 @@ namespace Icon_conversion
                     {
                         Number_file.Add(filePath[i]);//将元素添加到数组末尾
                         文件列表.Items.Add(filePath[i]);
-                        日志.Text += "\n[" + DateTime.Now.ToLongTimeString().ToString() + "]: 已添加文件：" + filePath[i];
+                        Assignment("已添加文件：" + filePath[i]);
                     }
                     else
                     {
-                        日志.Text += "\n[" + DateTime.Now.ToLongTimeString().ToString() + "]: 请添加格式为 jpg、png、bmp、jpeg 格式文件！";
+                        Assignment("请添加格式为 jpg、png、bmp、jpeg 格式文件！");
                     }
                 }
                 else
                 {
-                    日志.Text += "\n[" + DateTime.Now.ToLongTimeString().ToString() + "]: 添加失败!原因：已存在此文件";
+                    Assignment("添加失败!原因：已存在此文件");
                 }
             }
             文件下拉框.Header = "已选择" + Number_file.Count + "个对象";

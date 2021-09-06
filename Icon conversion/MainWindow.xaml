@@ -209,13 +209,13 @@
                 <materialDesign:PackIcon Kind="InformationVariant"  />
             </Button>
         </Canvas>
-        <Canvas x:Name="尺寸" Margin="10,136,125,235">
-            <CheckBox x:Name="尺寸16" Content="16 X 16" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="80"/>
-            <CheckBox x:Name="尺寸32" Content="32 X 32" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="80" Canvas.Left="80"/>
-            <CheckBox x:Name="尺寸48" Content="48 X 48" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="80" Canvas.Left="165"/>
-            <CheckBox x:Name="尺寸128" Content="128 X 128" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="80" Canvas.Left="245"/>
-            <CheckBox x:Name="尺寸255" Content="255 X 255" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="80" Canvas.Left="335"/>
-            <CheckBox x:Name="自定义" Content="自定义" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="95" Canvas.Left="425" Checked="自定义_Checked"/>
+        <Canvas x:Name="尺寸" Margin="10,136,10,235">
+            <CheckBox x:Name="尺寸16" Content="32 X 32" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="70"/>
+            <CheckBox x:Name="尺寸32" Content="64 X 64" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="70" Canvas.Left="75"/>
+            <CheckBox x:Name="尺寸48" Content="256 X 256" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="80" Canvas.Left="150"/>
+            <CheckBox x:Name="尺寸128" Content="512 X 512" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="85" Canvas.Left="235"/>
+            <CheckBox x:Name="尺寸255" Content="1024 X 1024" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="100" Canvas.Left="325"/>
+            <CheckBox x:Name="自定义" Content="自定义" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="195" Canvas.Left="430" Checked="自定义_Checked"/>
         </Canvas>
         <Canvas x:Name="按钮" Margin="520,30.133,10,10">
             <Button x:Name="添加文件" Content="添加文件" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="110" FontSize="14" FontWeight="Bold" FontFamily="Microsoft YaHei UI" Click="添加文件_Click" Canvas.Top="10"/>
@@ -227,8 +227,8 @@
         </Canvas>
         <Canvas x:Name="输出" Margin="10,165,125,10">
             <Rectangle x:Name="输出背景" HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="504.02" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" SnapsToDevicePixels="True" Fill="{Binding Background, ElementName=文件下拉框}"/>
-            <ScrollViewer x:Name="框" HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="505" HorizontalScrollBarVisibility="Visible" AllowDrop="True" Foreground="Black">
-                <TextBox x:Name="日志" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalScrollBarVisibility= "Visible" BorderBrush="{x:Null}" CaretBrush="#FF0288D1" FontFamily="微软雅黑" AllowDrop="True" Background="#02000000" MinHeight="225" MinWidth="480" />
+            <ScrollViewer x:Name="框" HorizontalAlignment="Left" Height="225" VerticalAlignment="Top" Width="505" HorizontalScrollBarVisibility="Auto" AllowDrop="True" Foreground="Black">
+                <TextBox x:Name="日志" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalScrollBarVisibility= "Visible" BorderBrush="{x:Null}" CaretBrush="#FF0288D1" FontFamily="微软雅黑" AllowDrop="True" Background="#02000000" MinHeight="225" MinWidth="485" />
 
             </ScrollViewer>
         </Canvas>
@@ -258,7 +258,7 @@
             </Rectangle>
             <TextBox x:Name="高" materialDesign:HintAssist.Hint="高度" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="10,35.5,10,127.943" />
             <TextBox x:Name="宽" materialDesign:HintAssist.Hint="宽度" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="10,77.056,10,86.386" />
-            <Label x:Name="自定义标题" Content="自定义尺寸" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="115"/>
+            <Label x:Name="自定义标题" Content="自定义尺寸(最高5120*5120)" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="170" FontSize="11"/>
             <Button x:Name="确定" Content="确定" HorizontalAlignment="Left" Height="30" Margin="10,149,0,0" VerticalAlignment="Top" Width="70" Click="确定_Click"/>
             <Button x:Name="取消" Content="取消" HorizontalAlignment="Left" Height="30" Margin="112,149,0,0" VerticalAlignment="Top" Width="68" Click="取消_Click"/>
             <Label x:Name="警告" Content="输入无效！，尺寸最大255" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,118.613,0,0" Width="170" Foreground="#DDFF0000" Visibility="Collapsed"/>
