@@ -32,6 +32,7 @@ namespace Icon_conversion
         {
             BeginStoryboard((Storyboard)FindResource("自定义关闭"));
             自定义.IsChecked = false;
+            警告.Content = string.Empty;
         }
 
         private void 自定义_Checked(object sender, RoutedEventArgs e)
@@ -127,10 +128,6 @@ namespace Icon_conversion
             catch { }
         }
         /// <summary>
-        /// 获取用户临时文件夹路径
-        /// </summary>
-        static string Temp_file = Environment.GetEnvironmentVariable("TMP");
-        /// <summary>
         /// 获取桌面路径
         /// </summary>
         static string Desktop_file = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -153,13 +150,12 @@ namespace Icon_conversion
 
             if (Related_functions.check.Document_verification() != true)
             {
-                //MessageBox.Show("签名校验失败,程序可能被篡改,轻击确定以退出程序", "警告");
-                //Environment.Exit(0);
+                MessageBox.Show("签名校验失败,程序可能被篡改,轻击确定以退出程序", "警告");
+                Environment.Exit(0);
             }
 
             //到此结束
             日志.Text += "[" + DateTime.Now.ToLongTimeString().ToString() + "]: ICO图标转换程序启动  Copyright © xcz 2021";
-            Assignment("获取临时文件夹：" + Temp_file);
             Assignment("获取桌面路径：" + Desktop_file);
             输出路径.Text = out_file;
             前端显示.IsChecked = true;
@@ -329,6 +325,7 @@ namespace Icon_conversion
                         自定义.IsChecked = true;
                         自定义.Content = 高.Text + " X " + 宽.Text;
                         BeginStoryboard((Storyboard)FindResource("自定义关闭"));
+                        警告.Content = string.Empty;
                     }
                 }
                 else

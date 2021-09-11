@@ -15,7 +15,7 @@
                         <BackEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <BackEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
@@ -27,7 +27,7 @@
                         <BackEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1">
                     <EasingDoubleKeyFrame.EasingFunction>
                         <BackEase EasingMode="EaseOut"/>
                     </EasingDoubleKeyFrame.EasingFunction>
@@ -35,11 +35,11 @@
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="自定义尺寸">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="自定义尺寸">
                 <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
-                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="遮罩">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
@@ -141,11 +141,7 @@
                         <CircleEase EasingMode="EaseIn"/>
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.289">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <CircleEase EasingMode="EaseIn"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1.222"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="关于界面">
                 <EasingDoubleKeyFrame KeyTime="0" Value="1">
@@ -153,19 +149,15 @@
                         <CircleEase EasingMode="EaseIn"/>
                     </EasingDoubleKeyFrame.EasingFunction>
                 </EasingDoubleKeyFrame>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.25">
-                    <EasingDoubleKeyFrame.EasingFunction>
-                        <CircleEase EasingMode="EaseIn"/>
-                    </EasingDoubleKeyFrame.EasingFunction>
-                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1.246"/>
             </DoubleAnimationUsingKeyFrames>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="关于界面">
                 <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Collapsed}"/>
             </ObjectAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="关于界面">
-                <SplineDoubleKeyFrame KeyTime="0" Value="1"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="遮罩">
                 <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
@@ -242,7 +234,7 @@
             </Expander>
         </Canvas>
         <Rectangle x:Name="遮罩" Fill="Black" HorizontalAlignment="Left" Height="400" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="640" Opacity="0.5" Visibility="Collapsed"/>
-        <Grid x:Name="自定义尺寸" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="190" Margin="225,86,0,0" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+        <Grid x:Name="自定义尺寸" HorizontalAlignment="Left" Height="190" VerticalAlignment="Top" Width="190" Margin="225,86,0,0" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -251,17 +243,17 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            <Rectangle x:Name="自定义背景" Fill="White" HorizontalAlignment="Left" Height="200" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="190">
+            <Rectangle x:Name="自定义背景" Fill="White" HorizontalAlignment="Left" Height="190" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="190">
                 <Rectangle.Effect>
                     <DropShadowEffect Opacity="0.5" BlurRadius="12" ShadowDepth="1"/>
                 </Rectangle.Effect>
             </Rectangle>
-            <TextBox x:Name="高" materialDesign:HintAssist.Hint="高度" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="10,35.5,10,127.943" />
-            <TextBox x:Name="宽" materialDesign:HintAssist.Hint="宽度" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="10,77.056,10,86.386" />
+            <TextBox x:Name="高" materialDesign:HintAssist.Hint="高度" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="10,35.5,10,116.944" Height="36.556" />
+            <TextBox x:Name="宽" materialDesign:HintAssist.Hint="宽度" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Margin="10,77.056,10,75.387" Height="36.557" />
             <Label x:Name="自定义标题" Content="自定义尺寸(最高5120*5120)" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="170" FontSize="11"/>
             <Button x:Name="确定" Content="确定" HorizontalAlignment="Left" Height="30" Margin="10,149,0,0" VerticalAlignment="Top" Width="70" Click="确定_Click"/>
             <Button x:Name="取消" Content="取消" HorizontalAlignment="Left" Height="30" Margin="112,149,0,0" VerticalAlignment="Top" Width="68" Click="取消_Click"/>
-            <Label x:Name="警告" Content="输入无效！，尺寸最大255" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,118.613,0,0" Width="170" Foreground="#DDFF0000" Visibility="Collapsed"/>
+            <Label x:Name="警告" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,119.113,0,0" Width="180" Foreground="#DDFF0000"/>
         </Grid>
         <Grid x:Name="拖入文件" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="640" AllowDrop="True" Drop="拖入文件_Drop" Visibility="Collapsed">
             <Rectangle HorizontalAlignment="Left" Height="400" Stroke="Black" VerticalAlignment="Top" Width="640" RadiusX="5" RadiusY="5">
@@ -269,11 +261,11 @@
                     <SolidColorBrush Color="Black" Opacity="0.5"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="松开鼠标按键以完拖放！" VerticalAlignment="Top" Margin="0,56.489,0,0" Height="57.162" Width="640" TextAlignment="Center" FontSize="24" FontFamily="微软雅黑"/>
-            <Rectangle x:Name="rectangle" Stroke="#FF000000" StrokeThickness="3" StrokeDashArray="2 2"
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="松开鼠标按键以完拖放！" VerticalAlignment="Top" Margin="0,56.489,0,0" Height="57.162" Width="640" TextAlignment="Center" FontSize="24" FontFamily="微软雅黑" Foreground="White"/>
+            <Rectangle x:Name="rectangle" Stroke="White" StrokeThickness="3" StrokeDashArray="2 2"
                 SnapsToDevicePixels="True" Margin="85.106,120.002,85.106,45" RadiusX="5" RadiusY="5"/>
         </Grid>
-        <Grid x:Name="关于界面" HorizontalAlignment="Left" Height="280" VerticalAlignment="Top" Width="450" Margin="100,55,0,0" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+        <Grid x:Name="关于界面" HorizontalAlignment="Left" Height="285" VerticalAlignment="Top" Width="450" Margin="100,55,0,0" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -282,17 +274,17 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Grid.RenderTransform>
-            <Rectangle x:Name="关于背景" Fill="White" HorizontalAlignment="Left" Height="280" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="450" Stroke="{Binding Background, ElementName=添加文件}"/>
+            <Rectangle x:Name="关于背景" Fill="White" HorizontalAlignment="Left" Height="285" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="450" Stroke="{Binding Background, ElementName=添加文件}"/>
             <Rectangle x:Name="声明背景" Margin="5,90,5,5" Stroke="{Binding Background, ElementName=添加文件}" RadiusX="5" RadiusY="5"/>
             <Label x:Name="软件介绍" Content="软件名称： ICO图标转换&#xA;版本：       1.0.0.0&#xA;版权：       Copyright © xcz 2021&#xA;反馈邮箱：xczzhouqian@gmail.com" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,10,0,0" Width="245" Height="80"/>
             <materialDesign:PackIcon Kind="ArrangeSendBackward" x:Name="关于图标" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="80" MouseUp="图标_MouseUp" Foreground="{Binding Background, ElementName=添加文件}" Background="#00000000" Cursor="Hand" Margin="10,10,0,0"/>
-            <ScrollViewer x:Name="声明" HorizontalAlignment="Left" Height="175" VerticalAlignment="Top" Width="430" Margin="10,95,0,0" Padding="1">
-                <TextBlock x:Name="声明文字" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="410"><Span FontFamily="宋体"><Run Text="1."/></Span><Span FontFamily="宋体"><Run Text="本软件只限于自然人及非商业用途的使用。这表示任何自然人均可在中华人民共和国境内以非商业用途免费使用本软件。任何组织使用本软件，或任何自然人基于商业用途使用本软件均构成对许可人及其附属合作伙伴的权利侵害，可能导致民事或刑事追究。"/></Span><LineBreak/><Span FontFamily="宋体"><Run Text="2."/></Span><Span FontFamily="宋体"><Run Text="任何人均不得违反中国相关法律、法规及政策的规定使用本软件，或将本软件用于任何违法目的。"/></Span><LineBreak/><Span FontFamily="宋体"><Run Text="3."/></Span><Span FontFamily="宋体"><Run Text="用户在使用本软件过程中应尊重权利人的知识产权，不得修改或去除本软件所附带的版权及其它知识产权标识。"/></Span><LineBreak/><Span FontFamily="宋体"><Run Text="4."/></Span><Span FontFamily="等线"><Run Text=" "/></Span><Span FontFamily="宋体"><Run Text="软件内的功能、代码、源码、一系列资源部分来源于网络、用户提供、原创、个人经验！禁止非法逆向及传播本软件源码。"/></Span><LineBreak/><Span FontFamily="宋体"><Run Text="若本软件侵犯了贵开发者的权利，请联系我们，我们会尽快处理。"/></Span><LineBreak/><Span FontFamily="宋体"><Run Text="5"/></Span><Span><Run Text="."/></Span><Span FontFamily="宋体"><Run Text="安装并使用本软件意味着接受本许可的这些条款和条件。如果您不同意本许可的条款，您必须从您的存储设备中删除本软件全部文件并终止使用本软件。"/></Span></TextBlock>
+            <ScrollViewer x:Name="声明" HorizontalAlignment="Left" Height="185" VerticalAlignment="Top" Width="430" Margin="10,95,0,0" Padding="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <TextBlock x:Name="声明文字" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="430"><Span FontFamily="宋体"><Run Text="1."/></Span><Span FontFamily="宋体"><Run Text="本软件只限于自然人及非商业用途的使用。这表示任何自然人均可在中华人民共和国境内以非商业用途免费使用本软件。任何组织使用本软件，或任何自然人基于商业用途使用本软件均构成对许可人及其附属合作伙伴的权利侵害，可能导致民事或刑事追究。"/></Span><LineBreak/><Span FontFamily="宋体"><Run Text="2."/></Span><Span FontFamily="宋体"><Run Text="任何人均不得违反中国相关法律、法规及政策的规定使用本软件，或将本软件用于任何违法目的。"/></Span><LineBreak/><Span FontFamily="宋体"><Run Text="3."/></Span><Span FontFamily="宋体"><Run Text="用户在使用本软件过程中应尊重权利人的知识产权，不得修改或去除本软件所附带的版权及其它知识产权标识。"/></Span><LineBreak/><Span FontFamily="宋体"><Run Text="4."/></Span><Span FontFamily="等线"><Run Text=" "/></Span><Span FontFamily="宋体"><Run Text="软件内的功能、代码、源码、一系列资源部分来源于网络、用户提供、原创、个人经验！禁止非法逆向及传播本软件源码。"/></Span><LineBreak/><Span FontFamily="宋体"><Run Text="若本软件侵犯了贵开发者的权利，请联系我们，我们会尽快处理。"/></Span><LineBreak/><Span FontFamily="宋体"><Run Text="5"/></Span><Span><Run Text="."/></Span><Span FontFamily="宋体"><Run Text="安装并使用本软件意味着接受本许可的这些条款和条件。如果您不同意本许可的条款，您必须从您的存储设备中删除本软件全部文件并终止使用本软件。"/></Span></TextBlock>
             </ScrollViewer>
             <materialDesign:PackIcon ToolTip="开源项目" Kind="Github" x:Name="开源项目" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" MouseUp="图标_MouseUp" Foreground="{Binding Background, ElementName=添加文件}" Background="#00000000" Cursor="Hand" Margin="320,50,0,0"/>
             <materialDesign:PackIcon Kind="DotNet" x:Name="开源项目_Copy" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Foreground="{Binding Background, ElementName=添加文件}" Background="#00000000" Cursor="Hand" Margin="362.667,50,0,0"/>
             <materialDesign:PackIcon Kind="LanguageCsharp"  x:Name="开源项目_Copy1" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Foreground="{Binding Background, ElementName=添加文件}" Background="#00000000" Cursor="Hand" Margin="410,50,0,0"/>
-            <Button x:Name="关闭关于" Style="{StaticResource MaterialDesignIconButton}" ToolTip="关闭" Height="Auto" Width="Auto" Foreground="{Binding Background, ElementName=添加文件}" Click="关闭关于_Click" Margin="415,5,5,245">
+            <Button x:Name="关闭关于" Style="{StaticResource MaterialDesignIconButton}" ToolTip="关闭" Height="30" Width="Auto" Foreground="{Binding Background, ElementName=添加文件}" Click="关闭关于_Click" Margin="419,1,1,254">
                 <materialDesign:PackIcon Kind="Close"  />
             </Button>
         </Grid>
